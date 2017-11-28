@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+var figlet = require('figlet');
 const client = new Discord.Client();
 const prefix = ";"
 client.on('ready', () => {
@@ -41,6 +42,14 @@ client.on('message', message => {
     file: "https://media.giphy.com/media/UBB6f0hKhlShy/giphy.jpg"
 });
 };
+ if (command == ";ascii ") {
+ let art = command.Slice(7)
+ message.channel.sendMessage(figlet.textSync(art, {
+    font: 'Ghost',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+}));
+ }
   if (command === "announce") {
       if (message.member.hasPermission("ADMINISTRATOR")) {
        let args = message.content.split(" ").slice(1).join(" ");
