@@ -44,12 +44,15 @@ client.on('message', message => {
 };
  if (message.startsWith(";ascii ")) {
  let art = command.Slice(7)
- message.channel.sendMessage(figlet.textSync(art, {
-    font: 'Ghost',
-    horizontalLayout: 'default',
-    verticalLayout: 'default'
-}));
- }
+figlet(art, function(err, data) {
+    if (err) {
+       message.channel.sendMessage('Something went wrong...');
+        message.channel.sendMessage(err);
+        return;
+    }
+    message.channel.sendMessage(data)
+});
+ };
   if (command === "announce") {
       if (message.member.hasPermission("ADMINISTRATOR")) {
        let args = message.content.split(" ").slice(1).join(" ");
