@@ -42,7 +42,7 @@ client.on('message', message => {
     file: "https://media.giphy.com/media/UBB6f0hKhlShy/giphy.jpg"
 });
 };
- if (command == ";ascii ") {
+ if (message.startsWith(";ascii ")) {
  let art = command.Slice(7)
  message.channel.sendMessage(figlet.textSync(art, {
     font: 'Ghost',
