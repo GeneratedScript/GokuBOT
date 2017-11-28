@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-var figlet = require('figlet');
+const figlet = require('figlet');
 const client = new Discord.Client();
 const prefix = ";"
 client.on('ready', () => {
